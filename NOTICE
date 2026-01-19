@@ -1,0 +1,19 @@
+MIDI to Voice Synth Converter
+Copyright 2024 unworthyzeus
+
+This project includes code ported from and inspired by:
+
+UtaFormatix3
+Copyright sdercolin and contributors
+https://github.com/sdercolin/utaformatix3
+Licensed under the Apache License, Version 2.0
+
+The format implementations (UST, USTX, SVP, VSQX, VPR, etc.) are derived from
+the UtaFormatix3 project's Kotlin source code, translated to Python.
+
+------------------------------------------------------------------------
+
+Third-party libraries used:
+- Flask (BSD-3-Clause)
+- mido (MIT License)
+- pyphen (LGPL/GPL/MPL tri-license)

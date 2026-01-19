@@ -1,11 +1,16 @@
 """
-MIDI to VSQX/VPR Converter - Flask Backend
-Converts MIDI files + lyrics into Vocaloid project formats (VSQ3, VSQ4, VPR)
+MIDI to Voice Synth Converter - Flask Backend
+Converts MIDI files + lyrics into vocal synthesis project formats
 
-Features:
-- Multi-channel MIDI support with per-channel lyrics assignment
-- Smart syllable matching with phrase awareness
-- Polyphonic splitting into monophonic tracks
+Supported Formats:
+- VSQX (Vocaloid 4)
+- VPR (Vocaloid 5/6)
+- UST (UTAU)
+- USTX (OpenUTAU)
+- SVP (Synthesizer V)
+
+Based on format specifications from UtaFormatix3 (Apache 2.0)
+https://github.com/sdercolin/utaformatix3
 """
 
 from flask import Flask, request, jsonify, send_file, Response
@@ -16,8 +21,16 @@ import io
 import json
 from midi_parser import parse_midi
 from lyrics_parser import parse_lyrics, LyricsFormat, syllabify_text, expand_lyrics_to_syllables
-from vsqx_generator import generate_vsqx, generate_multi_track_vsqx, VSQXVersion, SINGERS
+from vsqx_generator import (
+    generate_output, generate_multi_track_output, 
+    OutputFormat, SINGERS, get_file_extension, get_mime_type
+)
 from smart_matcher import SmartMatcher, create_matcher
+
+# Backward compatibility
+VSQXVersion = OutputFormat
+generate_vsqx = generate_output
+generate_multi_track_vsqx = generate_multi_track_output
 from channel_analyzer import ChannelAnalyzer, analyze_midi_channels
 
 app = Flask(__name__, static_folder='static', static_url_path='')
@@ -116,14 +129,14 @@ def convert():
                 pass
         
         # Parse version
-        if vsqx_version == 'ust':
-            version = VSQXVersion.UST
-        elif vsqx_version == 'ustx':
-            version = VSQXVersion.USTX
-        elif vsqx_version == 'svp':
-            version = VSQXVersion.SVP
-        else:
-            version = VSQXVersion.VSQ4
+        version_map = {
+            'vsqx': OutputFormat.VSQX,
+            'vpr': OutputFormat.VPR,
+            'ust': OutputFormat.UST,
+            'ustx': OutputFormat.USTX,
+            'svp': OutputFormat.SVP,
+        }
+        version = version_map.get(vsqx_version, OutputFormat.VSQX)
         
         # Create configured matcher
         matcher = create_matcher(
@@ -134,23 +147,10 @@ def convert():
         
         base_filename = os.path.splitext(midi_file.filename)[0]
         
-        # Determine file extension and mime type
-        if version == VSQXVersion.UST:
-            file_ext = '.ust'
-            mime_type = 'text/plain'
-            is_binary = False
-        elif version == VSQXVersion.USTX:
-            file_ext = '.ustx'
-            mime_type = 'text/yaml'
-            is_binary = False
-        elif version == VSQXVersion.SVP:
-            file_ext = '.svp'
-            mime_type = 'application/json'
-            is_binary = False
-        else:
-            file_ext = '.vsqx'
-            mime_type = 'application/xml'
-            is_binary = False
+        # Determine file extension and mime type from format
+        file_ext = get_file_extension(version)
+        mime_type = get_mime_type(version)
+        is_binary = (version == OutputFormat.VPR)  # VPR is a ZIP file
         
         if multi_track and len(tracks) > 1:
             # Generate multi-track project with per-channel lyrics
