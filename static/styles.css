@@ -1552,6 +1552,7 @@ input::placeholder {
 .match-options {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-lg);
     padding: var(--space-md);
     background: var(--bg-input);
@@ -1559,6 +1560,7 @@ input::placeholder {
     border-radius: var(--radius-md);
     margin-bottom: var(--space-lg);
     max-width: 1100px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
