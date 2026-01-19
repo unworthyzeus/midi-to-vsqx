@@ -47,16 +47,7 @@ A free, web-based tool for converting MIDI files and lyrics into singing voice s
 
 4. Open your browser to `http://127.0.0.1:5000`.
 
-## Voicebank Support
 
-### Vocaloid (VSQX/VPR)
-Hatsune Miku V4X, Megurine Luka V4X, Kagamine Rin/Len V4X, KAITO V4, GUMI V4, v flower, Fukase, and more.
-
-### UTAU (UST/USTX)
-Kasane Teto, Defoko, Momone Momo, Yokune Ruko, Namine Ritsu, Sukone Tei, and any custom voicebanks.
-
-### Synthesizer V (SVP)
-Solaria, Eleanor Forte, Kevin, Asterian, Mai, Koharu Rikka, Tsurumaki Maki, and more.
 
 ## Attribution
 

@@ -37,38 +37,13 @@ TICK_RATE = 480          # Standard MIDI ticks per quarter note
 BPM_RATE = 100.0        # VPR tempo multiplier
 
 
-# Voicebank database
-SINGERS = {
-    # Vocaloid 4
-    'Miku_V4X': {'id': 'BHHP9W79F6TFRCD5', 'name': 'Hatsune Miku V4X', 'lang': 'Japanese'},
-    'Luka_V4X': {'id': 'BCEY7S56V3TSW7FC', 'name': 'Megurine Luka V4X', 'lang': 'Japanese'},
-    'Rin_V4X': {'id': 'BHEY7S79F6TFRCD5', 'name': 'Kagamine Rin V4X', 'lang': 'Japanese'},
-    'Len_V4X': {'id': 'BHFY7S79F6TFRCD5', 'name': 'Kagamine Len V4X', 'lang': 'Japanese'},
-    'GUMI_V4': {'id': 'BHGP9W79F6TFRCD5', 'name': 'Megpoid (GUMI) V4', 'lang': 'Japanese'},
-    
-    # UTAU
-    'Teto': {'id': 'UTAU_TETO', 'name': 'Kasane Teto', 'lang': 'Japanese'},
-    'Defoko': {'id': 'UTAU_DEFOKO', 'name': 'Defoko', 'lang': 'Japanese'},
-    
-    # SynthV
-    'Solaria': {'id': 'SVP_SOLARIA', 'name': 'Solaria', 'lang': 'English'},
-    'Eleanor': {'id': 'SVP_ELEANOR', 'name': 'Eleanor Forte', 'lang': 'English'},
-    'Mai': {'id': 'SVP_MAI', 'name': 'Mai', 'lang': 'Japanese'},
-    
-    # Default
-    'Default': {'id': 'DEFAULT', 'name': 'Default', 'lang': 'Japanese'},
-}
-
-SINGER_ALIASES = {
-    'Miku': 'Miku_V4X', 'Luka': 'Luka_V4X', 'Rin': 'Rin_V4X', 'Len': 'Len_V4X', 'GUMI': 'GUMI_V4',
-}
+# Default generic singer
+DEFAULT_SINGER = {'id': 'DEFAULT', 'name': 'Default', 'lang': 'Japanese'}
 
 
 def get_singer(name: str) -> Dict:
-    """Get singer info by name or alias"""
-    if name in SINGER_ALIASES:
-        name = SINGER_ALIASES[name]
-    return SINGERS.get(name, SINGERS['Default'])
+    """Get singer info (always returns default)"""
+    return DEFAULT_SINGER
 
 
 def generate_output(
@@ -733,4 +708,5 @@ generate_vsqx = generate_output
 generate_multi_track_vsqx = generate_multi_track_output
 
 # Keep old SINGERS format for backward compatibility
-DEFAULT_SINGERS = {k: {'id': v['id'], 'name': v['name']} for k, v in SINGERS.items()}
+SINGERS = {'Default': DEFAULT_SINGER}
+DEFAULT_SINGERS = SINGERS

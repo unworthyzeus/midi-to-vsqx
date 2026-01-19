@@ -70,7 +70,6 @@ def convert():
         vsqx_version = request.form.get('version', 'vsq4')
         lyrics_format = request.form.get('lyrics_format', 'auto')
         lyrics_source = request.form.get('lyrics_source', 'midi')
-        singer_name = request.form.get('singer', 'Miku')
         tempo_override = request.form.get('tempo')
         multi_track = request.form.get('multi_track', 'false') == 'true'
         selected_channel = request.form.get('selected_channel')
@@ -182,12 +181,12 @@ def convert():
             
             track_data.sort(key=lambda t: -t['similarity'])
             
-            content = generate_multi_track_vsqx(
+            content = generate_multi_track_output(
                 tracks=track_data,
                 tempo=midi_data['tempo'],
                 time_signature=midi_data['time_signature'],
-                version=version,
-                singer_name=singer_name
+                output_format=version,
+                singer_name='Default'
             )
             
             output_path = os.path.join(app.config['UPLOAD_FOLDER'], f'output{file_ext}')
