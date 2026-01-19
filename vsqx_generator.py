@@ -51,7 +51,7 @@ def generate_output(
     tempo: float,
     time_signature: Tuple[int, int],
     output_format: OutputFormat = OutputFormat.VSQX,
-    singer_name: str = 'Miku',
+    singer_name: str = 'Default',
     project_name: str = 'Converted Project',
     similarity_score: float = 0.0
 ) -> bytes:
@@ -95,7 +95,7 @@ def generate_multi_track_output(
     tempo: float,
     time_signature: Tuple[int, int],
     output_format: OutputFormat = OutputFormat.VSQX,
-    singer_name: str = 'Miku'
+    singer_name: str = 'Default'
 ) -> bytes:
     """Generate output with multiple tracks"""
     if output_format == OutputFormat.VSQX:

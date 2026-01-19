@@ -68,6 +68,7 @@ def convert():
         
         # Get configuration options
         vsqx_version = request.form.get('version', 'vsq4')
+        singer_name = request.form.get('singer', 'Default')
         lyrics_format = request.form.get('lyrics_format', 'auto')
         lyrics_source = request.form.get('lyrics_source', 'midi')
         tempo_override = request.form.get('tempo')

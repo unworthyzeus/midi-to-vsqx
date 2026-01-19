@@ -1110,6 +1110,27 @@ input::placeholder {
     .step {
         max-width: 100%;
     }
+
+    /* Advanced Engine Tuning Mobile Fix */
+    .match-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+
+    /* Powerful Features Mobile Fix */
+    .section-heading {
+        font-size: 1.5rem;
+        margin-bottom: var(--space-xl);
+    }
+
+    .features-grid {
+        gap: var(--space-md);
+    }
+
+    .feature-card {
+        padding: var(--space-lg);
+    }
 }
 
 @media (max-width: 480px) {
@@ -1473,9 +1494,11 @@ input::placeholder {
 /* Match options checkboxes (if added later) */
 .match-options {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-lg);
     padding: var(--space-md);
     background: var(--bg-input);
+    border: 1px solid var(--border);
     border-radius: var(--radius-md);
     margin-bottom: var(--space-lg);
 }
