@@ -583,6 +583,16 @@ input::placeholder {
     gap: var(--space-lg);
 }
 
+.tuning-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+    .tuning-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .option-card {
     background: var(--bg-input);
     padding: var(--space-lg);
