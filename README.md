@@ -1,6 +1,6 @@
-# MIDI to Vocal Synth Converter
+# MIDI to Voice Synth Converter
 
-A premium, web-based tool for converting MIDI files and lyrics into vocal synthesis project formats.
+A free, web-based tool for converting MIDI files and lyrics into singing voice synthesis project formats.
 
 ## Supported Output Formats
 
