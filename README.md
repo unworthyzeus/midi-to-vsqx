@@ -1,6 +1,13 @@
-# MIDI to VSQX Converter
+# MIDI to Vocal Synth Converter
 
-A premium, web-based tool for converting MIDI files and lyrics into Vocaloid project formats (VSQX3, VSQX4, and VPR). 
+A premium, web-based tool for converting MIDI files and lyrics into vocal synthesis project formats.
+
+## Supported Output Formats
+
+- **VSQX** - Vocaloid 4 (XML format)
+- **UST** - UTAU (Classic format)
+- **USTX** - OpenUTAU (Modern YAML-based format)
+- **SVP** - Synthesizer V (JSON format)
 
 ![App Screenshot](static/favicon.png)
 
@@ -34,13 +41,27 @@ A premium, web-based tool for converting MIDI files and lyrics into Vocaloid pro
 
 4. Open your browser to `http://127.0.0.1:5000`.
 
+## Voicebank Support
+
+### Vocaloid 4 (VSQX)
+Hatsune Miku V4X, Megurine Luka V4X, Kagamine Rin/Len V4X, KAITO V4, GUMI V4, v flower, Fukase, and more.
+
+### UTAU (UST/USTX)
+Kasane Teto, Defoko, Momone Momo, Yokune Ruko, Namine Ritsu, Sukone Tei, and any custom voicebanks.
+
+### Synthesizer V (SVP)
+Solaria, Eleanor Forte, Kevin, Asterian, Mai, Koharu Rikka, Tsurumaki Maki, and more.
+
 ## ⚠️ Legal Disclaimer
 
-**This is NOT an official Yamaha or Vocaloid product.**
+**This is NOT an official product of Yamaha, UTAU, or Dreamtonics.**
 
-This tool is an independent, community-driven project designed solely for interoperability between standard MIDI data and Vocaloid project file formats. 
-- "VOCALOID", "VSQX", and "VPR" are trademarks of **Yamaha Corporation**.
-- This software has no affiliation with, authorization from, or endorsement by Yamaha Corporation.
+This tool is an independent, community-driven project designed solely for interoperability between standard MIDI data and various vocal synthesis project file formats. 
+
+- "VOCALOID" and "VSQX" are trademarks of **Yamaha Corporation**.
+- "UTAU" was created by Ameya/Ayame.
+- "Synthesizer V" and "SVP" are products of **Dreamtonics**.
+- This software has no affiliation with, authorization from, or endorsement by any of these companies.
 - Users are responsible for ensuring they own legal copies of any voicebanks referenced in the generated project files.
 
 ## License

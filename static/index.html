@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIDI to VSQX/VPR Converter | Vocaloid Project Generator</title>
+    <title>MIDI to Vocal Synth Converter | VSQX, UST, USTX, SVP</title>
     <meta name="description"
-        content="Convert MIDI files and lyrics into Vocaloid project formats. Supports VSQ3, VSQ4, and VPR (V5/6), with 40+ voicebanks including AI singers.">
+        content="Convert MIDI files and lyrics into vocal synthesis formats. Supports VSQX (Vocaloid), UST (UTAU), USTX (OpenUTAU), and SVP (Synthesizer V).">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -54,11 +54,11 @@
         <section class="hero">
             <h1 class="hero-title">
                 Transform Your <span class="gradient-text">MIDI</span> into
-                <span class="gradient-text">Vocaloid</span> Projects
+                <span class="gradient-text">Vocal Synth</span> Projects
             </h1>
             <p class="hero-subtitle">
-                Smart conversion that intelligently matches lyrics to notes,
-                splits long notes, and generates production-ready VSQX files.
+                Smart conversion that intelligently matches lyrics to notes.
+                Supports VSQX, UST, USTX, and SVP for Vocaloid, UTAU, OpenUTAU, and SynthV.
             </p>
         </section>
 
@@ -215,23 +215,29 @@ Use hyphens to split syllables within words." rows="6"></textarea>
                         <!-- Output Format -->
                         <div class="option-card option-card-wide">
                             <label class="input-label">Output Format</label>
-                            <div class="version-toggle version-toggle-3">
-                                <input type="radio" id="vsq3" name="version" value="vsq3">
-                                <label for="vsq3" class="version-btn">
-                                    <span class="version-name">VSQ3</span>
-                                    <span class="version-desc">Vocaloid 3</span>
-                                </label>
-
+                            <div class="version-toggle version-toggle-4">
                                 <input type="radio" id="vsq4" name="version" value="vsq4" checked>
                                 <label for="vsq4" class="version-btn">
-                                    <span class="version-name">VSQ4</span>
+                                    <span class="version-name">VSQX</span>
                                     <span class="version-desc">Vocaloid 4</span>
                                 </label>
 
-                                <input type="radio" id="vpr" name="version" value="vpr">
-                                <label for="vpr" class="version-btn">
-                                    <span class="version-name">VPR</span>
-                                    <span class="version-desc">Vocaloid 5/6</span>
+                                <input type="radio" id="ust" name="version" value="ust">
+                                <label for="ust" class="version-btn">
+                                    <span class="version-name">UST</span>
+                                    <span class="version-desc">UTAU</span>
+                                </label>
+
+                                <input type="radio" id="ustx" name="version" value="ustx">
+                                <label for="ustx" class="version-btn">
+                                    <span class="version-name">USTX</span>
+                                    <span class="version-desc">OpenUTAU</span>
+                                </label>
+
+                                <input type="radio" id="svp" name="version" value="svp">
+                                <label for="svp" class="version-btn">
+                                    <span class="version-name">SVP</span>
+                                    <span class="version-desc">SynthV</span>
                                 </label>
                             </div>
                         </div>
@@ -241,27 +247,7 @@ Use hyphens to split syllables within words." rows="6"></textarea>
                             <label for="singer" class="input-label">Singer / Voicebank</label>
                             <div class="select-wrapper">
                                 <select id="singer" name="singer">
-                                    <optgroup label="🤖 Vocaloid 6 (AI)">
-                                        <option value="Haruka_V6AI">HARUKA (V6 AI)</option>
-                                        <option value="Akito_V6AI">AKITO (V6 AI)</option>
-                                        <option value="Sarah_V6AI">SARAH (V6 AI) - English</option>
-                                        <option value="Allen_V6AI">ALLEN (V6 AI) - English</option>
-                                        <option value="Megpoid_V6AI">AI Megpoid (GUMI V6)</option>
-                                        <option value="Una_V6AI">AI Otomachi Una Spicy</option>
-                                        <option value="Una_Sugar_V6AI">AI Otomachi Una Sugar</option>
-                                        <option value="PoUta_V6">Po-uta (V6)</option>
-                                        <option value="Fuiro_V6">Fuiro (V6)</option>
-                                        <option value="Galaco_V6">Galaco Black &amp; White</option>
-                                        <option value="Tsuina_V6AI">AI Tsuina-chan</option>
-                                        <option value="Akari_V6AI">AI Kizuna Akari</option>
-                                    </optgroup>
-                                    <optgroup label="🎤 Vocaloid 5">
-                                        <option value="Amy_V5">Amy (V5) - English</option>
-                                        <option value="Chris_V5">Chris (V5) - English</option>
-                                        <option value="Kaori_V5">Kaori (V5)</option>
-                                        <option value="Ken_V5">Ken (V5)</option>
-                                    </optgroup>
-                                    <optgroup label="⭐ Vocaloid 4 (Popular)">
+                                    <optgroup label="⭐ Vocaloid 4 (VSQX)">
                                         <option value="Miku_V4X" selected>Hatsune Miku V4X</option>
                                         <option value="Miku_V4X_Eng">Hatsune Miku V4X English</option>
                                         <option value="Luka_V4X">Megurine Luka V4X</option>
@@ -273,22 +259,25 @@ Use hyphens to split syllables within words." rows="6"></textarea>
                                         <option value="Fukase_V4">Fukase (V4)</option>
                                         <option value="Yukari_V4">Yuzuki Yukari V4</option>
                                         <option value="Una_V4">Otomachi Una (V4)</option>
-                                        <option value="Una_Sugar_V4">Otomachi Una Sugar (V4)</option>
                                         <option value="Cyber_Diva">CYBER DIVA - English</option>
-                                        <option value="Cyber_Songman">CYBER SONGMAN - English</option>
                                     </optgroup>
-                                    <optgroup label="🎵 Vocaloid 3 (Classic)">
-                                        <option value="KAITO_V3">KAITO V3</option>
-                                        <option value="IA_V3">IA (V3)</option>
-                                        <option value="IA_Rocks">IA ROCKS</option>
-                                        <option value="Mayu_V3">MAYU (V3)</option>
-                                        <option value="Lily_V3">Lily (V3)</option>
-                                        <option value="VY1_V3">VY1 (V3)</option>
-                                        <option value="VY2_V3">VY2 (V3)</option>
-                                        <option value="Miku_V3">Hatsune Miku V3</option>
-                                        <option value="SeeU_V3">SeeU (V3) - Korean</option>
-                                        <option value="Oliver_V3">Oliver (V3) - English</option>
-                                        <option value="Avanna_V3">Avanna (V3) - English</option>
+                                    <optgroup label="🎤 UTAU (UST/USTX)">
+                                        <option value="Teto">Kasane Teto</option>
+                                        <option value="Defoko">Defoko (Uta Utane)</option>
+                                        <option value="Momo">Momone Momo</option>
+                                        <option value="Ruko">Yokune Ruko (VCV)</option>
+                                        <option value="Ritsu">Namine Ritsu (VCV)</option>
+                                        <option value="Tei">Sukone Tei</option>
+                                        <option value="OpenUtau_Default">OpenUTAU Default</option>
+                                    </optgroup>
+                                    <optgroup label="🎹 Synthesizer V (SVP)">
+                                        <option value="Solaria">Solaria - English</option>
+                                        <option value="Eleanor">Eleanor Forte - English</option>
+                                        <option value="Kevin">Kevin - English</option>
+                                        <option value="Asterian">Asterian - English</option>
+                                        <option value="Mai">Mai - Japanese</option>
+                                        <option value="Saki">Koharu Rikka - Japanese</option>
+                                        <option value="Tsurumaki">Tsurumaki Maki - Japanese</option>
                                     </optgroup>
                                     <optgroup label="📦 Other">
                                         <option value="Default">Default Singer</option>
@@ -445,7 +434,7 @@ Use hyphens to split syllables within words." rows="6"></textarea>
                         </svg>
                     </div>
                     <h3>All Formats</h3>
-                    <p>Output to VSQ3 (V3), VSQ4 (V4), or VPR (V5/6). Compatible with every modern Vocaloid version.</p>
+                    <p>Output to VSQX (Vocaloid), UST (UTAU), USTX (OpenUTAU), or SVP (Synthesizer V).</p>
                 </div>
 
                 <div class="feature-card">

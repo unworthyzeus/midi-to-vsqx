@@ -614,6 +614,12 @@ input::placeholder {
     gap: var(--space-sm);
 }
 
+.version-toggle-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+}
+
 .version-toggle input {
     position: absolute;
     opacity: 0;

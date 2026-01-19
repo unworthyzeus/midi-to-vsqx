@@ -116,10 +116,12 @@ def convert():
                 pass
         
         # Parse version
-        if vsqx_version == 'vsq3':
-            version = VSQXVersion.VSQ3
-        elif vsqx_version == 'vpr':
-            version = VSQXVersion.VPR
+        if vsqx_version == 'ust':
+            version = VSQXVersion.UST
+        elif vsqx_version == 'ustx':
+            version = VSQXVersion.USTX
+        elif vsqx_version == 'svp':
+            version = VSQXVersion.SVP
         else:
             version = VSQXVersion.VSQ4
         
@@ -133,10 +135,18 @@ def convert():
         base_filename = os.path.splitext(midi_file.filename)[0]
         
         # Determine file extension and mime type
-        if version == VSQXVersion.VPR:
-            file_ext = '.vpr'
-            mime_type = 'application/zip'
-            is_binary = True
+        if version == VSQXVersion.UST:
+            file_ext = '.ust'
+            mime_type = 'text/plain'
+            is_binary = False
+        elif version == VSQXVersion.USTX:
+            file_ext = '.ustx'
+            mime_type = 'text/yaml'
+            is_binary = False
+        elif version == VSQXVersion.SVP:
+            file_ext = '.svp'
+            mime_type = 'application/json'
+            is_binary = False
         else:
             file_ext = '.vsqx'
             mime_type = 'application/xml'
